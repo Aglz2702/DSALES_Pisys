@@ -215,6 +215,7 @@
 	<members>Asset.DSALES_TipoProducto__c</members>
 	<members>Asset.DSALES_TipoSeguro__c</members>
 	<members>Asset.DSALES_TipoServicio__c</members>
+	<members>Asset.DSales_Fecha_compra__c</members>
 	<members>Campaign.DSALES_Tipodecapana__c</members>
 	<members>Claim.Cliente__c</members>
 	<members>Claim.DSALES_Monto__c</members>
@@ -885,6 +886,7 @@
 	<members>Carga_de_correo_en_siniestro</members>
 	<members>Envi_de_correo_en_las_etapas_de_siniestro</members>
 	<members>Envi_de_correos_para_los_estatus_de_endosos</members>
+	<members>DSales_Actualiza_categorias</members>
 	<name>Flow</name>
 </types>
 <types>
@@ -1010,6 +1012,7 @@
 	<members>DSALES_Ruta_siniestros</members>
 	<members>DSales_Oportunidad_en_GEX</members>
 	<members>Certificado</members>
+	<members>DSales_Producto_Adquirido</members>
 	<name>PathAssistant</name>
 </types>
 <types>
