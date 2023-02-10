@@ -156,16 +156,20 @@ global class DSALES_QuoteSmWrapperRequest {
     }
     public static List<DSALES_QuoteSmWrapper.Campanias> buscaCampanias(String sku){
         List<DSALES_QuoteSmWrapper.Campanias> listaCampanias = new List<DSALES_QuoteSmWrapper.Campanias>();
-        Product2 productoMoto = [SELECT Id, Name, StockKeepingUnit, DSALES_Seguro__c, DSales_Articulo__c FROM Product2 WHERE StockKeepingUnit=:sku LIMIT 1];
-        List<DSALES_AsociacionCampanias__c> lista = [SELECT Name, DSALES_Campania__c, DSALES_Producto__c FROM DSALES_AsociacionCampanias__c WHERE DSALES_Producto__c =:productoMoto.Id];
-        for(DSALES_AsociacionCampanias__c item:lista){
-            Campaign aux = [SELECT Name, DSALES_Tipodecapana__c, Description FROM Campaign WHERE Id =: item.DSALES_Campania__c];
-            DSALES_QuoteSmWrapper.Campanias aux2 = new DSALES_QuoteSmWrapper.Campanias();
-            aux2.nombre = aux.Name;
-            aux2.tipoCampana = aux.DSALES_Tipodecapana__c;
-            aux2.descripcion = aux.Description;
-            listaCampanias.add(aux2);
-        }     
+        try{
+            Product2 productoMoto = [SELECT Id, Name, StockKeepingUnit, DSALES_Seguro__c, DSales_Articulo__c FROM Product2 WHERE StockKeepingUnit=:sku LIMIT 1];
+            List<DSALES_AsociacionCampanias__c> lista = [SELECT Name, DSALES_Campania__c, DSALES_Producto__c FROM DSALES_AsociacionCampanias__c WHERE DSALES_Producto__c =:productoMoto.Id];
+            for(DSALES_AsociacionCampanias__c item:lista){
+                Campaign aux = [SELECT Name, DSALES_Tipodecapana__c, Description FROM Campaign WHERE Id =: item.DSALES_Campania__c];
+                DSALES_QuoteSmWrapper.Campanias aux2 = new DSALES_QuoteSmWrapper.Campanias();
+                aux2.nombre = aux.Name;
+                aux2.tipoCampana = aux.DSALES_Tipodecapana__c;
+                aux2.descripcion = aux.Description;
+                listaCampanias.add(aux2);
+            }
+        }catch(Exception e){
+            System.debug('No Se encontraron Campanias para el SKU');        
+        }    
         return listaCampanias;
     }
     public static List<DSALES_QuoteSmWrapper.Plazo> plazosActivos(String plazoMaximo){
@@ -262,7 +266,7 @@ global class DSALES_QuoteSmWrapperRequest {
         //cotiza.DSALES_FormadePago__c = data.method_payment;
         cotiza.DSales_ID_Tienda__c = data.id_tienda;
         cotiza.DSales_Tienda__c = tienda.Id;
-        cotiza.ExpirationDate = date.today()+7;
+        cotiza.ExpirationDate = date.today()+30;
         cotiza.RecordTypeId = recordTypeId;
         date aux = date.today();
         cotiza.DSALES_Fechadecreacionpresupuesto__c = date.newInstance(aux.year(), aux.month(), aux.day());

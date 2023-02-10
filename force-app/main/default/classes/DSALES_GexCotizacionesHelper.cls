@@ -33,6 +33,9 @@ public class DSALES_GexCotizacionesHelper {
             List<Messaging.SingleEmailMessage> MessageList = new List<Messaging.SingleEmailMessage>();
             
             for(Quote item: sObjectList){
+                system.debug('Id: del Coti: '+item.Id);
+                system.debug('Enviar Coti: '+item.DSALES_Enviarcotizacion__c);
+                system.debug('Mapa Coti: '+mapQuote.get(item.Id).DSALES_Enviarcotizacion__c);
                 if(item.DSALES_Enviarcotizacion__c==true && mapQuote.get(item.Id).DSALES_Enviarcotizacion__c==false)
                 {
                     
@@ -73,6 +76,8 @@ public class DSALES_GexCotizacionesHelper {
             if(MessageList.Size()!=0)
                 Messaging.sendEmail(MessageList, false);
             System.debug('Correo enviado');
+            
+        
         }catch(Exception ex){
             System.debug('Error: '+ex.getMessage() + ', Línea: '+ex.getLineNumber());
         }
@@ -82,7 +87,9 @@ public class DSALES_GexCotizacionesHelper {
         PageReference pdf = Page.Cotizacion; 
         pdf.setRedirect(False);
         pdf.getParameters().put('quoteID',quoteId);
-        
+         List<Quote> dupQuote = [SELECT Id, Name,OpportunityId, DSALES_EmailNew__c, Pricebook2Id, RecordTypeId, Status, DSALES_Enviarcotizacion__c, DSales_Tienda__c, DSales_Vendedor__c,
+                               DSALES_Fechadecreacionpresupuesto__c, ExpirationDate, DSALES_esClon__c FROM Quote where DSALES_esClon__c= true]; 
+            delete dupQuote;
         Blob b; 
         if(!test.isRunningTest())
             b = pdf.getContent();

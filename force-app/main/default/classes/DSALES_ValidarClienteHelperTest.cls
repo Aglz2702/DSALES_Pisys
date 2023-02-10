@@ -22,10 +22,11 @@ global with sharing class DSALES_ValidarClienteHelperTest {
         op.CloseDate=Date.today();
         op.AccountId=ac.Id;
         insert op;
-        
+        Id rtSg = Schema.SObjectType.Quote.getRecordTypeInfosByName().get('Venta de Seguro de Motos').getRecordTypeId();
         Quote qt = New Quote();
         qt.OpportunityId=op.Id;
         qt.Name='Danny';
+        qt.RecordTypeId=rtSg;
         qt.Pricebook2Id=pb2Id;
         qt.Status= 'Draft';
         insert qt;

@@ -47,10 +47,6 @@
                 <behavior>Edit</behavior>
                 <field>DSALES_Nombredelsolicitante__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Amount</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -101,22 +97,18 @@
     </platformActionList>
     <quickActionList/>
     <relatedLists>
+        <excludeButtons>NewQuote</excludeButtons>
         <fields>QUOTE.QUOTENUMBER</fields>
         <fields>QUOTE.NAME</fields>
-        <fields>QUOTE.STATUS</fields>
         <fields>QUOTE.TOTALPRICE</fields>
-        <fields>DSALES_AdquiriopolizaSM__c</fields>
-        <fields>QUOTE.SUBTOTAL</fields>
-        <fields>QUOTE.EXPIRATIONDATE</fields>
-        <fields>CreatedBy</fields>
         <relatedList>RelatedQuoteList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>DSALES_ProductoAdquirido__c</fields>
-        <fields>DSALES_TipoCompra__c</fields>
-        <fields>DSALES_Precio__c</fields>
-        <fields>DSALES_SKU__c</fields>
+        <fields>DSales_Tienda__c</fields>
+        <fields>DSALES_TotalContado__c</fields>
         <relatedList>DSALES_InformacionDePago__c.DSALES_Oportunidad__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -125,19 +117,12 @@
         <excludeButtons>EditAllProduct</excludeButtons>
         <excludeButtons>MultiAdd</excludeButtons>
         <excludeButtons>MultiEdit</excludeButtons>
+        <excludeButtons>Sort</excludeButtons>
+        <excludeButtons>SortLineItem</excludeButtons>
         <fields>Product2</fields>
         <fields>Quantity</fields>
         <fields>UnitPrice</fields>
-        <fields>ServiceDate</fields>
-        <fields>Description</fields>
-        <fields>ListPrice</fields>
         <relatedList>RelatedLineItemList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>OPPORTUNITY.NAME</fields>
-        <fields>ACCOUNT.NAME</fields>
-        <fields>OPPORTUNITY.CLOSE_DATE</fields>
-        <relatedList>Opportunity.DSALES_OppPrin__c</relatedList>
     </relatedLists>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
@@ -146,7 +131,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h8J000000IleC</masterLabel>
+        <masterLabel>00h6w000000FP0L</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

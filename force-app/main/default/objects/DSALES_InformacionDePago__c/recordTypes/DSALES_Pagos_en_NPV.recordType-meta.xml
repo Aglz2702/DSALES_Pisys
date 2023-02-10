@@ -2,8 +2,9 @@
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>DSALES_Pagos_en_NPV</fullName>
     <active>true</active>
-    <description>Aquí se registrarán los pagos d ela venta desde el NPV</description>
-    <label>Pagos de Venta en NPV de GEX</label>
+    <compactLayoutAssignment>DSales_Informacion_GEX</compactLayoutAssignment>
+    <description>Aquí se registrarán los pagos de la venta</description>
+    <label>Pagos de venta de servicios</label>
     <picklistValues>
         <picklist>DSALES_Estatus__c</picklist>
         <values>
@@ -12,6 +13,10 @@
         </values>
         <values>
             <fullName>No Acreditado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reembolso</fullName>
             <default>false</default>
         </values>
     </picklistValues>

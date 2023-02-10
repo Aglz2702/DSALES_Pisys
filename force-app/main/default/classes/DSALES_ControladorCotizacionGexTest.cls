@@ -36,12 +36,16 @@ public class DSALES_ControladorCotizacionGexTest {
         pb.UnitPrice=200;
         //pb.UnitPrice=35;//when we use standarprice book =true thenunit price is readonly field
         pb.isActive=true;
-       	insert pb; 
+       	insert pb;
+        DSALES_InformacionDePago__c pago = new DSALES_InformacionDePago__c(DSALES_Oportunidad__c=op.Id,DSALES_Fechadeentregaestimada__c=Date.today());
+		insert pago;
         Quote qtGex = new Quote(name='DannyGex',OpportunityId=op.Id,PriceBook2Id=pb2Id,RecordTypeId=rtGex);
         insert qtGex;
          Quote qtSg = new Quote(name='DannySG',OpportunityId=op.Id,PriceBook2Id=pb2Id,RecordTypeId=rtSg);
         insert qtSg;
-            
+
+        Quote qtSg2 = new Quote(name='DannySG2',OpportunityId=op.Id,PriceBook2Id=pb2Id,RecordTypeId=rtSg);
+        insert qtSg2;
         
         QuoteLineItem quote= new QuoteLineItem(QuoteId=qtGex.Id,UnitPrice=2,Quantity=2,PricebookEntryId=pb.Id,Product2Id=prod.id,Vigencia_meses__c='12');
         insert quote;
@@ -56,8 +60,15 @@ public class DSALES_ControladorCotizacionGexTest {
         
         QuoteLineItem quote4= new QuoteLineItem(QuoteId=qtSg.Id,UnitPrice=2,Quantity=2,PricebookEntryId=pb.Id,Product2Id=prod2.id,Vigencia_meses__c='24');
         insert quote4;
-        QuoteLineItem quote5= new QuoteLineItem(QuoteId=qtSg.Id,UnitPrice=2,Quantity=2,PricebookEntryId=pb.Id,Product2Id=prod3.id,Vigencia_meses__c='12');
-        insert quote5;
+        
+        
+          QuoteLineItem quote6= new QuoteLineItem(QuoteId=qtSg2.Id,UnitPrice=2,Quantity=2,PricebookEntryId=pb.Id,Product2Id=prod.id,Vigencia_meses__c='12');
+        insert quote6;
+        
+        QuoteLineItem quote7= new QuoteLineItem(QuoteId=qtSg2.Id,UnitPrice=2,Quantity=2,PricebookEntryId=pb.Id,Product2Id=prod2.id,Vigencia_meses__c='24');
+        insert quote7;
+        QuoteLineItem quote8= new QuoteLineItem(QuoteId=qtSg2.Id,UnitPrice=2,Quantity=2,PricebookEntryId=pb.Id,Product2Id=prod2.id,Vigencia_meses__c='24');
+        insert quote8;
         
         DSALES_Generador__c gen = new DSALES_Generador__c();
         gen.Name='Cotizacion Gex';
@@ -70,6 +81,11 @@ public class DSALES_ControladorCotizacionGexTest {
         gen2.Name='Cotizacion SG';
         gen2.DSALES_Plantilla__c='Cotizacion';
         insert gen2;
+        
+        DSALES_Generador__c gen3= new DSALES_Generador__c();
+        gen3.Name='DSALES_EnvioCotizacionSm';
+        gen3.DSALES_Plantilla__c='Cotizacion';
+        insert gen3;
    	}
         @istest public  static void DSALES_ControladorCotizacionGex()
         {
@@ -96,15 +112,19 @@ public class DSALES_ControladorCotizacionGexTest {
         {
             Test.startTest();
             List<Product2> pd=[SELECT Name,Family, DSales_Tipo_de_Producto__c FROM Product2 WHERE DSales_Tipo_de_Producto__c='Producto' LIMIT 1];
-            Quote qt= [SELECT Id, DSALES_EmailCliente__c FROM QUOTE WHERE NAME='DannySg' LIMIT 1	];
+           
+            Quote qt=[SELECT Id, DSALES_EmailCliente__c FROM QUOTE WHERE NAME='DannySg' LIMIT 1	];
             System.debug('quote: '+qt.Id);
             List<QuoteLineItem> qline =[SELECT Id, QuoteId,UnitPrice,Quantity,PricebookEntryId,Product2Id FROM QuoteLineItem];
            
             DSALES_Generador__c gene=[SELECT Id,Name,DSALES_Plantilla__c FROM DSALES_Generador__c WHERE Name='Cotizacion SG' LIMIT 1];
              System.debug('generador: '+gene.Id);
             PageReference pageRef = Page.Cotizacion;
+            
             Test.setCurrentPage(pageRef);
+           
             // put the certificado id as a parameter
+            
             ApexPages.currentPage().getParameters().put('quoteId',qt.Id);
             // Call your apex method here and you will get code coverage
             
@@ -113,6 +133,29 @@ public class DSALES_ControladorCotizacionGexTest {
            
             Test.stopTest();
         }
-  
+    @istest public  static void DSALES_ControladorCotizacionSG2()
+        {
+            Test.startTest();
+            List<Product2> pd=[SELECT Name,Family, DSales_Tipo_de_Producto__c FROM Product2 WHERE DSales_Tipo_de_Producto__c='Producto' LIMIT 1];
+            
+            Quote qt2=[SELECT Id, DSALES_EmailCliente__c FROM QUOTE WHERE NAME='DannySg2' LIMIT 1	];
+            System.debug('quote: '+qt2.Id);
+            List<QuoteLineItem> qline =[SELECT Id, QuoteId,UnitPrice,Quantity,PricebookEntryId,Product2Id FROM QuoteLineItem];
+            DSALES_Generador__c gene=[SELECT Id,Name,DSALES_Plantilla__c FROM DSALES_Generador__c WHERE Name='DSALES_EnvioCotizacionSm' LIMIT 1];
+             System.debug('generador: '+gene.Id);
+            PageReference pageRef = Page.Cotizacion;
+          
+            Test.setCurrentPage(pageRef);
+           
+            // put the certificado id as a parameter
+           
+            ApexPages.currentPage().getParameters().put('quoteId',qt2.Id);
+            // Call your apex method here and you will get code coverage
+            
+            DSALES_ControladorCotizacionGex controlador = new DSALES_ControladorCotizacionGex();
+            
+           
+            Test.stopTest();
+        }
         
 }

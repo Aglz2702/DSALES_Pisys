@@ -3,6 +3,7 @@
     <fullName>DSALES_Contado__c</fullName>
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
-    <label>90001</label>
+    <label>Cliente de contado</label>
+    <trackHistory>false</trackHistory>
     <type>Checkbox</type>
 </CustomField>

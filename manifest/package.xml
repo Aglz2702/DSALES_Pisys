@@ -1,4 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>DSALES_Certificado__c.DSALES_Certificado</members>
+		<name>CompactLayout</name>
+	</types>
+	<types>
+		<members>Asset.DSales_Fecha_compra__c</members>
+		<members>DSALES_Certificado__c.DSALES_DescripcionDelArtculo__c</members>
+		<members>DSALES_Certificado__c.DSALES_Email__c</members>
+		<members>DSALES_Certificado__c.DSALES_Marca__c</members>
+		<members>DSALES_Certificado__c.DSALES_Modelo__c</members>
+		<members>DSALES_Certificado__c.DSALES_Numero_celular__c</members>
+		<members>DSALES_InformacionDePago__c.DSALES_Nombre_del_cliente__c</members>
+		<members>Product2.DSales_Nombre_del_Producto__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>DSALES_Certificado__c</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Certificado_de_Garant_a_Extendida</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
+		<members>Asset-Asset Layout</members>
+		<members>Asset-Pisys Asset Layout</members>
+		<members>DSALES_Certificado__c-DSALES_Certificado_GEX</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>Certificado</members>
+		<name>PathAssistant</name>
+	</types>
+	<types>
+		<members>DSALES_Certificado__c.DSALES_VerCertificado</members>
+		<name>WebLink</name>
+	</types>
 	<version>55.0</version>
 </Package>

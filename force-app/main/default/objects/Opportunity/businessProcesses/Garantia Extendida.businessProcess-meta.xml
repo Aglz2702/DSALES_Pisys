@@ -11,10 +11,6 @@
         <default>false</default>
     </values>
     <values>
-        <fullName>En espera de aceptación de Cliente</fullName>
-        <default>false</default>
-    </values>
-    <values>
         <fullName>Nuevo</fullName>
         <default>false</default>
     </values>

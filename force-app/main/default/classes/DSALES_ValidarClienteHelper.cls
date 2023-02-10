@@ -81,7 +81,7 @@ public class DSALES_ValidarClienteHelper {
        
     }
     
-    @future(callout=true)
+    //@future(callout=true)
     public static void actualizarCotizacion(String quoteId){
         Quote cotizacion = [SELECT Id,AccountId,OpportunityId,Opportunity.AccountId FROM Quote WHERE Id= :quoteId];
         List<Opportunity> oppor= new List<Opportunity>(); 

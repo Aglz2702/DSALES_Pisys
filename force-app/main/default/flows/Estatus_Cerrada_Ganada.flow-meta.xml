@@ -4,81 +4,9 @@
     <decisions>
         <name>Cambio_de_etapa_Cerrada_Ganada</name>
         <label>Cambio de etapa Cerrada Ganada</label>
-        <locationX>446</locationX>
+        <locationX>182</locationX>
         <locationY>335</locationY>
         <defaultConnectorLabel>Resultado predeterminado</defaultConnectorLabel>
-        <rules>
-            <name>Cerrada_Ganada_Producto_y_Servicio</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>DSales_Garantia_Extendida</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.DSales_Resumen_Tipo_de_Compra_Servicio__c</leftValueReference>
-                <operator>GreaterThanOrEqualTo</operator>
-                <rightValue>
-                    <numberValue>1.0</numberValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.StageName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Nuevo</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.DSales_Resumen_Tipo_de_Compra_Producto__c</leftValueReference>
-                <operator>GreaterThanOrEqualTo</operator>
-                <rightValue>
-                    <numberValue>1.0</numberValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Estatus_Cerrada_Ganada</targetReference>
-            </connector>
-            <label>Cerrada Ganada Producto y Servicio</label>
-        </rules>
-        <rules>
-            <name>Cerrada_Ganada_Producto_y_Servicio_En_espera</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>DSales_Garantia_Extendida</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.DSales_Resumen_Tipo_de_Compra_Servicio__c</leftValueReference>
-                <operator>GreaterThanOrEqualTo</operator>
-                <rightValue>
-                    <numberValue>1.0</numberValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.DSales_Resumen_Tipo_de_Compra_Producto__c</leftValueReference>
-                <operator>GreaterThanOrEqualTo</operator>
-                <rightValue>
-                    <numberValue>1.0</numberValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.StageName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>En espera de aceptación de Cliente</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Cerrada_Ganada_Articulo_y_servicio_espera</targetReference>
-            </connector>
-            <label>Cerrada Ganada Producto y Servicio En espera</label>
-        </rules>
         <rules>
             <name>Cerrada_Ganada_solo_GEX</name>
             <conditionLogic>and</conditionLogic>
@@ -97,14 +25,14 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.DSales_Resumen_Tipo_de_Compra_Servicio__c</leftValueReference>
-                <operator>EqualTo</operator>
+                <leftValueReference>$Record.DSales_Compra__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
                     <numberValue>1.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Cerrada_Ganada_GEX</targetReference>
+                <targetReference>Cerrada_Ganada</targetReference>
             </connector>
             <label>Cerrada Ganada solo GEX</label>
         </rules>
@@ -133,33 +61,7 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordUpdates>
-        <name>Cerrada_Ganada_Articulo_y_servicio_espera</name>
-        <label>Cerrada Ganada Articulo y servicio espera</label>
-        <locationX>314</locationX>
-        <locationY>455</locationY>
-        <inputAssignments>
-            <field>StageName</field>
-            <value>
-                <stringValue>Cerrada ganada</stringValue>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
-    <recordUpdates>
-        <name>Cerrada_Ganada_GEX</name>
-        <label>Cerrada Ganada GEX</label>
-        <locationX>578</locationX>
-        <locationY>455</locationY>
-        <inputAssignments>
-            <field>StageName</field>
-            <value>
-                <stringValue>Cerrada ganada</stringValue>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
-    <recordUpdates>
-        <name>Estatus_Cerrada_Ganada</name>
+        <name>Cerrada_Ganada</name>
         <label>Cerrada Ganada</label>
         <locationX>50</locationX>
         <locationY>455</locationY>
@@ -172,7 +74,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>320</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Cambio_de_etapa_Cerrada_Ganada</targetReference>

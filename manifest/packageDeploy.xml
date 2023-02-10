@@ -168,6 +168,7 @@
 	<members>Asset.DSALES_PysisCompactLayout</members>
 	<members>Campaign.DSALES_FormatoCompactoCampanasSM</members>
 	<members>Claim.DSALES_Formato_compacto_siniestro</members>
+	<members>Opportunity.DSales_Formato_GEX</members>
 	<members>DSALES_Certificado__c.DSALES_Certificado</members>
 	<members>DSALES_Endoso__c.DSALES_Formato_compacto_endoso</members>
 	<members>DSALES_InformacionDePago__c.InfoPagoVenta</members>	
@@ -175,6 +176,7 @@
 	<members>Plazo__c.DSALES_FormatoompactoSM</members>
 	<members>Quote.DSALES_FormatocompactoSM</members>
 	<members>QuoteLineItem.DSALES_FormatocompactoSM</members>
+	<members>DSALES_InformacionDePago__c.DSales_Informacion_GEX</members>
 	<name>CompactLayout</name>
 </types>
 <types>
@@ -497,6 +499,7 @@
 	<members>Opportunity.Posici_n__c</members>
 	<members>OpportunityLineItem.DSALES_Producto__c</members>
 	<members>OpportunityLineItem.DSALES_Servicio__c</members>
+	<members>Opportunity.DSales_Compra__c</members>
 	<members>OpportunityLineItem.DSALES_TipoServ__c</members>
 	<members>Opportunity.DSales_IDVendedor__c</members>
 	<members>OpportunityLineItem.DSALES_Vendido__c</members>
@@ -583,7 +586,11 @@
 	<members>Quote.Horas_transcurridas__c</members>
 	<members>Quote.Nombre_Cliente_Test__c</members>
 	<members>Quote.DSALES_Contado__c</members>
+	<members>Quote.DSales_GEX__c</members>
+	<members>Quote.DSales_Ingresos_GEX__c</members>
 	<members>Quote.DSALES_Numerodepartidas__c</members>
+	<members>Quote.DSales_Ingresos_productos__c</members>
+	<members>Quote.DSales_Productos__c</members>
 	<members>Quote.Tiempo_transcurrido__c</members>
 			<members>Quote.DSALES_esClon__c</members>
 
@@ -633,6 +640,10 @@
 	<members>Tienda__c.DSALES_Optica__c</members>
 	<name>CustomField</name>
 </types>
+<types>
+		<members>Opportunity.Garantia Extendida</members>
+		<name>BusinessProcess</name>
+	</types>
 <types>
 	<members>DSALES_ContactMethod</members>
 	<members>DSALES_coberturaAmp</members>
@@ -856,6 +867,11 @@
 	<members>Tipo_de_Uso_Record_Page</members>
 	<members>DSALES_TipodevehculoPginaderegistro</members>
 	<members>Tipo_de_veh_culo_Record_Page</members>
+	<members>Quote_Record_Page_Servicios</members>
+	<members>Quote_Line_Item_Record_Page</members>
+	<members>Categor_a_P_gina_de_registro</members>
+	<members>Sub_Categor_a_P_gina_de_registro</members>
+	<members>Porcentaje_de_cobro_Record_Page</members>
 	<name>FlexiPage</name>
 </types>
 <types>
@@ -918,6 +934,7 @@
 </types>
 <types>
 	<members>Asset-Pisys Asset Layout</members>
+	<members>Asset-Asset Layout</members>
 	<members>Campaign-DSALES_CAMPAÑAS SM</members>
 	<members>DSALES_AsociacionCampanias__c-Formato Asociación de campañas</members>
 	<members>DSALES_Categoria__c-DSALES_SM</members>
@@ -937,6 +954,7 @@
 	<members>InsurancePolicyAsset-Formato de Activo de póliza de seguro</members>
 	<members>Opportunity-DSALES_OpportunityPISYSGEX</members>
 	<members>Opportunity-DSALES_OpportunitySM</members>
+	<members>Opportunity-Opportunity Layout</members>
 	<members>PersonAccount-DSALES_Clientes</members>
 	<members>Plazo__c-Formato Plazo</members>
 	<members>Quote-Venta SM</members>
@@ -953,6 +971,13 @@
 	<members>Tienda__c-Formato Tienda</members>
 	<members>DSALES_Endoso__c-Formato Endoso</members>
 	<members>DSALES_InformacionDePago__c-DSALESInformaciondepagosSM</members>
+	<members>DSALES_Categoria__c-DSALES_GEX</members>
+		<members>DSALES_Clase__c-DSALES_GEX</members>
+		<members>DSALES_Familia__c-DSALES_GEX</members>
+	<members>DSALES_SubCategoria__c-DSales_GEX</members>
+	<members>DASALES_Porcentajedecobro__c-Porcentaje de cobro Layout</members>
+	<members>DSales_Asignacion_de_Productos__c-Formato Asignación de Productos</members>
+	<members>Product2-Formato para servicios y seguros</members>
 	<name>Layout</name>
 </types>
 <types>
@@ -1121,6 +1146,16 @@
 	<members>DSALES_ReportesdeVentasGEX/DSALES_Resultado_Division</members>
 	<members>DSALES_ReportesdeVentasGEX/DSALES_Resultado_Tiendas</members>
 	<members>DSALES_ReportesdeVentasGEX/DSALES_Resultado_Zonas</members>
+	<members>DSALES_ReportesdeVentasGEX/DSales_GEX_Resultado_Tiendas_ozC</members>
+	<members>DSALES_ReportesdeVentasGEX/DSales_GEX_Resultado_Zonas_w4C</members>
+	<members>DSALES_ReportesdeVentasGEX/DSales_Ranking_Region_wen</members>
+		<members>DSALES_ReportesdeVentasGEX/DSales_Ranking_por_colaboradores_del_mes_6HG</members>
+		<members>DSALES_ReportesdeVentasGEX/DSales_Resultado_Division_Primer_Tr_Ymt</members>
+		<members>DSALES_ReportesdeVentasGEX/DSales_Resultado_Region_Primer_Trimestre_Gf3</members>
+		<members>DSALES_ReportesdeVentasGEX/DSales_Top_10_Tiendas_lrA</members>
+		<members>DSALES_ReportesdeVentasGEX/DSales_Ventas_por_division_por_mes_0fb</members>
+		<members>DSALES_ReportesdeVentasGEX/DSales_Ventas_por_region_por_trimestre_3xy</members>
+		<members>DSALES_ReportesdeVentasGEX/Garanta_Extendida_Resultados_Nacional_t0U</
 	<name>Report</name>
 </types>
 <types>

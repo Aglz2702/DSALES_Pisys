@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <aggregates>
+        <calculatedFormula>IF(Opportunity.DSales_Resumen_Tipo_de_Compra_Producto__c:SUM&gt;0,(Opportunity.DSales_Resumen_Tipo_de_Compra_Servicio__c:SUM/Opportunity.DSales_Resumen_Tipo_de_Compra_Producto__c:SUM)*100, 0)/100</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Conversión</masterLabel>
+        <reportType>QuoteProduct</reportType>
+        <scale>1</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(Quote.DSales_GEX__c:SUM&gt;0, (Quote.DSales_Productos__c:SUM/Quote.DSales_GEX__c:SUM)*100, 0)/100</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA10</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Conversión.</masterLabel>
+        <reportType>QuoteProduct</reportType>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(Quote.DSales_GEX__c:SUM&gt;0, (Quote.DSales_Productos__c:SUM/Quote.DSales_GEX__c:SUM)*100, 0)/100</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA11</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Conversión Año actual.</masterLabel>
+        <reportType>QuoteProduct</reportType>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(Quote.DSales_GEX__c:SUM&gt;0, (Quote.DSales_Productos__c:SUM/Quote.DSales_GEX__c:SUM)*100, 0)/100</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Conversión1</masterLabel>
+        <reportType>QuoteProduct</reportType>
+        <scale>1</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(Quote.DSales_GEX__c:SUM&gt;0, (Quote.DSales_Productos__c:SUM/Quote.DSales_GEX__c:SUM)*100, 0)/100</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Conversión 2</masterLabel>
+        <reportType>QuoteProduct</reportType>
+        <scale>1</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(Quote.DSales_GEX__c:SUM&gt;0, (Quote.DSales_Productos__c:SUM/Quote.DSales_GEX__c:SUM)*100, 0)/100</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA8</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Conversión Año anterior</masterLabel>
+        <reportType>QuoteProduct</reportType>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(Quote.DSales_GEX__c:SUM&gt;0, (Quote.DSales_Productos__c:SUM/Quote.DSales_GEX__c:SUM)*100, 0)/100</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA9</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Conversión año actual</masterLabel>
+        <reportType>QuoteProduct</reportType>
+        <scale>0</scale>
+    </aggregates>
+    <block>
+        <blockInfo>
+            <aggregateReferences>
+                <aggregate>FORMULA10</aggregate>
+            </aggregateReferences>
+            <blockId>B0</blockId>
+            <joinTable>o</joinTable>
+        </blockInfo>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>Quote.DSales_Productos__c</field>
+        </columns>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>Quote.DSales_GEX__c</field>
+        </columns>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>Quote.DSales_Ingresos_GEX__c</field>
+        </columns>
+        <filter>
+            <criteriaItems>
+                <column>RECORDTYPE</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>Opportunity.DSales_Garantia_Extendida</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Resultados año anterior</name>
+        <params>
+            <name>open</name>
+            <value>closedwon</value>
+        </params>
+        <params>
+            <name>probability</name>
+            <value>&gt;0</value>
+        </params>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>QuoteProduct</reportType>
+        <scope>organization</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>CREATED_DATE</dateColumn>
+            <interval>INTERVAL_THISMONTH</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>o</joinTable>
+    </blockInfo>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <aggregate>Sum</aggregate>
+            <axisBinding>y</axisBinding>
+            <column>B0#Quote.DSales_Ingresos_GEX__c</column>
+        </chartSummaries>
+        <chartType>VerticalColumn</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>Quote.DSales_DivisionG__c</groupingColumn>
+        <location>CHART_BOTTOM</location>
+        <showAxisLabels>false</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Quote.DSales_DivisionG__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Ventas por división por mes</name>
+    <params>
+        <name>lsk</name>
+        <value>45</value>
+    </params>
+    <reportType>QuoteProduct</reportType>
+    <showDetails>true</showDetails>
+</Report>

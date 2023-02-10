@@ -17,10 +17,6 @@
                 <field>QuoteNumber</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>DSALES_Nombredelsolicitante__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
@@ -112,8 +108,8 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>DSALES_Region__c</field>
+                <behavior>Readonly</behavior>
+                <field>DSALES_Regioon__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -125,18 +121,11 @@
         <label>System Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>RecordTypeId</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
@@ -163,6 +152,11 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
+            <actionName>DSALES_VerCotizacion</actionName>
+            <actionType>CustomButton</actionType>
+            <sortOrder>0</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>SyncQuote</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>1</sortOrder>
@@ -173,19 +167,9 @@
             <sortOrder>2</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>DSALES_VerCotizacion</actionName>
-            <actionType>CustomButton</actionType>
-            <sortOrder>0</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>Delete</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>3</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Duplicar</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>4</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList>
@@ -235,12 +219,21 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <excludeButtons>AddQuoteLine</excludeButtons>
+        <excludeButtons>EditAllQuoteLine</excludeButtons>
+        <excludeButtons>Sort</excludeButtons>
+        <excludeButtons>SortQuoteLines</excludeButtons>
         <fields>QUOTE_LI.PRODUCT2</fields>
+        <fields>DSALES_NombreProductoServicio__c</fields>
         <fields>QUOTE_LI.QUANTITY</fields>
         <fields>QUOTE_LI.UNIT_PRICE</fields>
         <relatedList>RelatedQuoteLineItemList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>MailMerge</excludeButtons>
+        <excludeButtons>SendEmail</excludeButtons>
+        <excludeButtons>ViewAll</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -252,7 +245,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h8J000000IknI</masterLabel>
+        <masterLabel>00h6w000000FP0Q</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

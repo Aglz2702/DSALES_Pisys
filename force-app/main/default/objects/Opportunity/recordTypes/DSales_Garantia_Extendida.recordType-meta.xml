@@ -3,6 +3,7 @@
     <fullName>DSales_Garantia_Extendida</fullName>
     <active>true</active>
     <businessProcess>Garantia Extendida</businessProcess>
+    <compactLayoutAssignment>DSales_Formato_GEX</compactLayoutAssignment>
     <description>Crea las oportunidades para el proceso de Garantía Extendida para grupo Coppel</description>
     <label>Garantía Extendida</label>
     <picklistValues>

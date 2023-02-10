@@ -757,8 +757,7 @@ public class DSALES_ControladorCotizacionGex {
             }
             System.debug('ids partidas: '+ idsPartidas.size());
             List<Plazo__c> plazo=[SELECT Id,Dsales_Plazo__c,DSALES_Seguro__r.Name FROM Plazo__c WHERE Id IN: idsPartidas ];
-            System.debug('plazos: '+plazo);
-            System.debug('plazos: '+plazo[0].DSALES_Seguro__r.Name);
+           
             html = html.replace('Quote.', '');
             for(String item: mapCampos.keySet()){
                 
