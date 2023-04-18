@@ -41,7 +41,7 @@
                                     role="presentation">
                                     <a aria-selected="true" class="slds-path__link" id="path-17" role="option"
                                         tabindex="0" onclick={openVincuProduct}>
-                                        <span class="slds-path__title">Vincular Productos</span>
+                                        <span class="slds-path__title">Vincular productos</span>
                                     </a>
                                 </li>
                             </ul>
@@ -58,15 +58,15 @@
                 <div style="background-color: #ffffff" class="slds-modal__header">
                     <h1 if:true={data.showAdmiGex} id="modal-heading-03"
                         class="slds-text-heading_medium slds-text-align_center slds-hyphenate">
-                        Crear Servicio
+                        Crear servicio
                     </h1>
                     <h1 if:true={data.showAdmiSM} id="modal-heading-04"
                         class="slds-text-heading_medium slds-text-align_center slds-hyphenate">
-                        Crear Seguro
+                        Crear seguro
                     </h1>
                     <h1 if:true={resultPerfil} id="modal-heading-14"
                         class="slds-text-heading_medium slds-text-align_center slds-hyphenate">
-                        Crear Servicio o Seguro
+                        Crear Seguro/Servicio
                     </h1>
 
                 </div>
@@ -229,9 +229,8 @@
 
                                 <template if:true={data.showServicio}>
                                     <lightning-dual-listbox if:false={showPorcentajeCobro} name="Matrices"
-                                        label="Seleccione matrices" source-label="Disponible"
+                                        label="Seleccione las matrices que apliquen:" source-label="Disponible"
                                         selected-label="Seleccionado"
-                                        field-level-help="Selecciona las matrices que apliquen"
                                         options={pickList.listMatrices} onchange={onchangeValueMatriz}>
                                     </lightning-dual-listbox>
                                 </template>
@@ -286,19 +285,9 @@
 
         <template if:true={showVincuProduct}>
                 <div style="background-color: #ffffff" class="slds-modal__header">
-                    <button variant="brand"
-                        class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-                        title="Close" onclick={cancelar}>
-
-                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
-                            size="small">
-                        </lightning-icon>
-                        <span class="slds-assistive-text">Close</span>
-                    </button>
-
                     <h1 id="modal-heading-02"
                         class="slds-text-heading_medium  slds-text-align_center slds-hyphenate">
-                        Vincular Productos
+                        Vincular productos
                     </h1>
                 </div>
                 <div class="slds-modal__content">
@@ -732,19 +721,18 @@
         </h1>
     </div>
     <div class="slds-grid slds-grid_vertical-align-center slds-box_x-small">
-        <lightning-input type="search" class="slds-m-right_small" onchange={changeSku} value={buscarSkuString}
+        <lightning-input type="search" class="slds-m-right_small" onchange={changeSku} onkeydown={handleKeyDownSearch} value={buscarSkuString}
             placeholder="Buscar por nombre o SKU">
         </lightning-input>
-        <div class="slds-col slds-align-bottom">
             <lightning-button variant="brand" label="Buscar" title="Buscar productos" onclick={search}
-                class="slds-m-right_xxx-small" style="position: absolute; top: 5; right: 18.8rem; transform: translateX(100%);" ></lightning-button>
-        </div>
+                class="slds-m-right_xx-large" style="margin-left: auto;" 
+            ></lightning-button>
     </div>
     <div class="screen-divider" style="width: 100%; height: 14px; background-color: #ffffff;"></div>
     <div class="slds-grid slds-wrap">
         <div class="slds-grid slds-grid_align-left slds-size_3-of-12 slds-box_x-small">
             <lightning-input type="search" class="slds-m-right_xx-small" onchange={buscadorC} value={buscarCategoria}
-                placeholder="Buscar Categoría">
+                placeholder="Buscar categoría">
             </lightning-input>
         </div>
 
@@ -752,18 +740,18 @@
 
         <div class="slds-grid slds-grid_align-left slds-size_3-of-12 slds-box_x-small">
             <lightning-input type="search" onchange={buscadorSubC} class="slds-m-right_xx-small" value={buscarSCat}
-                placeholder="Buscar Subcategoría">
+                placeholder="Buscar subcategoría">
             </lightning-input>
         </div>
 
         <div class="slds-grid slds-grid_align-left slds-size_3-of-12 slds-box_x-small">
             <lightning-input type="search" class="slds-m-right_xx-small" onchange={buscadorCla} value={buscarClase}
-                placeholder="Buscar Clase">
+                placeholder="Buscar clase">
             </lightning-input>
         </div>
 
         <div class="slds-grid slds-grid_align-left slds-size_2-of-12 slds-box_x-small">
-            <lightning-input type="search" onchange={buscadorFami} value={buscarFami} placeholder="Buscar Familia">
+            <lightning-input type="search" onchange={buscadorFami} value={buscarFami} placeholder="Buscar familia">
             </lightning-input>
         </div>
     </div>
@@ -875,7 +863,7 @@
 <div if:true={showbyfilter}>
     <div if:false={showc} class="slds-modal__header">
         <h1 id="modal-heading-06" class="slds-text-heading_medium slds-hyphenate">
-            Productos sin clasificar
+            Clasificar nuevos productos
         </h1>
     </div>
     <div class="screen-divider" style="width: 100%; height: 25px; background-color: #ffffff;"></div>
@@ -1187,9 +1175,9 @@
                         </h1>
                     </div>
                     <div class="slds-modal__content slds-p-around_large" id="modal-content-id-466">
-                        <lightning-dual-listbox name="Campañas" label="Seleccione las Campañas que apliquen"
-                            source-label="Disponible" selected-label="Seleccionado"
-                            field-level-help="Selecciona las campañas que apliquen" options={data.listaCampanas}
+                        <lightning-dual-listbox name="Campañas" label="Seleccione las Campañas que apliquen:"
+                            source-label="Disponible" selected-label="Activo"
+                            options={data.listaCampanas}
                             onchange={onchangeCampana} value={campanasSelected}>
 
                         </lightning-dual-listbox>
@@ -1219,9 +1207,9 @@
                         </h1>
                     </div>
                     <div class="slds-modal__content slds-p-around_large" id="modal-content-id-4666">
-                        <lightning-dual-listbox name="Tipos de uso" label="Seleccione los tipos de uso que apliquen"
-                            source-label="Disponible" selected-label="Seleccionado"
-                            field-level-help="Selecciona los tipos de uso que apliquen" options={data.listaTiposuso}
+                        <lightning-dual-listbox name="Tipos de uso" label="Seleccione los tipos de uso que apliquen:"
+                            source-label="Disponible" selected-label="Activo"
+                            options={data.listaTiposuso}
                             onchange={onchangeTiposuso} value={tiposUsoSelected}>
                         </lightning-dual-listbox>
                     </div>

@@ -1244,6 +1244,7 @@ export default class DSALES_ClasificacionServiciolwc extends LightningElement {
             this.data.listaproductos[i].seleccionadoSku = checkP;
             this.data.listaproductos[i].seleccionadoClase = checkP;
             this.data.listaproductos[i].seleccionadoDept = checkP;
+            this.data.listaproductos[i].seleccionadoSubcategoria = checkP;
             this.data.listaproductos[i].seleccionadoFamilia = checkP;
         }
         this.checkSkus = checkP;
@@ -1659,6 +1660,16 @@ export default class DSALES_ClasificacionServiciolwc extends LightningElement {
         }
         
     }
+    
+    handleKeyDownSearch(event) {
+        if (event.key === 'Enter') {
+            this.search();
+          // Aquí puedes llamar a la función que quieres ejecutar cuando se presiona Enter
+          console.log('Enter presionado');
+        }
+      }
+     
+      
 
     
 
