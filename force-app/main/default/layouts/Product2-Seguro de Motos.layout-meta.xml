@@ -76,24 +76,14 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <fields>QUOTE_LI.PRODUCT2</fields>
-        <fields>QUOTE_LI.QUANTITY</fields>
-        <fields>QUOTE_LI.UNIT_PRICE</fields>
-        <fields>QUOTE_LI.LIST_PRICE</fields>
-        <fields>QUOTE_LI.SUBTOTAL</fields>
-        <fields>QUOTE_LI.TOTAL_PRICE</fields>
-        <fields>QUOTE_LI.DISCOUNT</fields>
-        <relatedList>QuoteLineItem.DSales_SKU_Producto__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <relatedList>RelatedPricebookEntryList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>DSALES_Campania__c</fields>
+        <fields>Dsales_Plazo__c</fields>
         <fields>DSALES_Activo__c</fields>
         <fields>CREATED_DATE</fields>
-        <relatedList>DSALES_AsociacionCampanias__c.DSALES_Producto__c</relatedList>
+        <relatedList>Plazo__c.DSALES_Seguro__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

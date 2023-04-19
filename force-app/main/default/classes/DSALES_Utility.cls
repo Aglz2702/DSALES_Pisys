@@ -5,6 +5,7 @@ public class DSALES_Utility {
     public static final String INTERNAL_ERROR_MSJ = 'Internal Error';
     public static final Integer BAD_REQUEST_CODE = 400;
     public static final Integer INTERNAL_ERROR_CODE = 500;
+    public static final String SEGURO_PREDETERMINADO = 'PÓLIZA UNIVERSAL';
     
     public static String getEndpoint(String nombreURL){
         try{

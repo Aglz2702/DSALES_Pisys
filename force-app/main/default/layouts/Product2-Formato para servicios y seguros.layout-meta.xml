@@ -86,6 +86,10 @@
                 <behavior>Edit</behavior>
                 <field>Description</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>LastModifiedById</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -99,12 +103,6 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <relatedLists>
-        <fields>QUOTE_LI.PRODUCT2</fields>
-        <fields>DSALES_SKU__c</fields>
-        <fields>QUOTE_LI.TOTAL_PRICE</fields>
-        <relatedList>QuoteLineItem.DSales_SKU_Producto__c</relatedList>
-    </relatedLists>
     <relatedLists>
         <relatedList>RelatedPricebookEntryList</relatedList>
     </relatedLists>

@@ -1,135 +1,108 @@
-public class DSALES_SiniestroWrapper {
+global class DSALES_SiniestroWrapper {
+    global class siniestroCallPost { 
+        global String uid { get; set;}
+        global String Reporte { get; set;}
+        global String NumeroSiniestro { get; set;}
+        global String TipoSiniestro { get; set;}
+        global String FechaSiniestro { get; set;}
+        global String NombreConductor { get; set;}
+        global String Causa { get; set;}
 
-    public class siniestroCallPost { 
-        public String uid { get; set;}
-        public String Reporte { get; set;}
-        public String NumeroSiniestro { get; set;}
-        public String TipoSiniestro { get; set;}
-        public String FechaSiniestro { get; set;}
-        public String NombreConductor { get; set;}
-        public String Causa { get; set;}
+        global vehiculo Vehiculo { get; set;}
+        global poliza Poliza { get; set;} //minuscula
 
-        public vehiculo Vehiculo { get; set;}
-        public poliza Poliza { get; set;}
-
-        public String ComoOcurrio { get; set;}
-        public String Ubicacion { get; set;}
-        public String Municipio { get; set;}
-        public String Estado { get; set;}
-        public String Estatus { get; set;}
-        public String salesforceid { get; set;}
+        global String ComoOcurrio { get; set;}
+        global String Ubicacion { get; set;}
+        global String Municipio { get; set;}
+        global String Estado { get; set;}
+        global String Estatus { get; set;}
+        global String salesforceid { get; set;}
     }
 
-    public class vehiculo{
-        public String Descripcion { get; set;}
-        public String Anio { get; set;}
-        public String Placa { get; set;}
-        public String Serie { get; set;}
+    global class vehiculo{
+        global String Descripcion { get; set;}
+        global String Anio { get; set;}
+        global String Placa { get; set;}
+        global String Serie { get; set;}
     }
 
-    public class poliza{
-        public String NumeroPoliza { get; set;}
-        public String Inciso { get; set;}
-        public String FechaInicioVigencia { get; set;}
-        public String FechaFinVigencia { get; set;}
-        public String NombreAsegurado { get; set;}
+    global class poliza{
+        global String numeroPoliza { get; set;}
+        global String Inciso { get; set;}
+        global String FechaInicioVigencia { get; set;}
+        global String FechaFinVigencia { get; set;}
+        global String NombreAsegurado { get; set;}
     }
 
-    public class siniestroPostResponse{
-        public String ok { get; set;}
-        public String response { get; set;}
-        public String msg { get; set;}
-        public siniestro siniestro { get; set;}
+    global class siniestroPostResponse{
+        global Boolean success { get; set;}
+        global String mensaje { get; set;}
+        global Integer codigo_error { get; set;}
+        global String id_siniestro { get; set;}      
+    }
+
+    global class siniestro{
+        global String uid { get; set;}
+        global String NumeroSiniestro { get; set;}
+    }
+
+    global class SiniestroPut{
+        global String uid { get; set;}
+        global String Reporte { get; set;}
+        global String NumeroSiniestro { get; set;}
+        global String TipoSiniestro { get; set;}
+        global String FechaSiniestro { get; set;}
+        global String NombreConductor { get; set;}
+        global String Causa { get; set;}
+
+        global vehiculo Vehiculo { get; set;}
+        global poliza Poliza { get; set;}
+
+        global String ComoOcurrio { get; set;}
+        global String Ubicacion { get; set;}
+        global String Municipio { get; set;}
+        global String Estado { get; set;}
+        global String Estatus { get; set;}
+        global String salesforceid { get; set;}       
+    }
+
+    global class comprobantesTenencia{
+        global String Descripcion { get; set;} 
+        global String Comprobante { get; set;} 
+        global String IdComprobante { get; set;} 
         
     }
 
-    public class siniestro{
-        public String uid { get; set;}
-        public String NumeroSiniestro { get; set;}
+    global class SiniestroGet{
+        global String uid { get; set;}
+        global String reporte { get; set;}
+        global String numeroSiniestro { get; set;}
+        global String tipoSiniestro { get; set;}
+        global String fechaSiniestro { get; set;}
+        global String nombreConductor { get; set;}
+        global String causa { get; set;}
+
+        global vehiculo vehiculo { get; set;}
+        global poliza poliza { get; set;}
+		global List<listaSiniestros> listSiniestro{get;set;}
+        global String comoOcurrio { get; set;}
+        global String ubicacion { get; set;}
+        global String municipio { get; set;}
+        global String estado { get; set;}
+        global String estatus { get; set;}
+
+        global String solucionDevolucion { get; set;}
+        global String motivoDevolucion { get; set;}
+        global String saldoinsoluto {get;set;}
+        global String motivoRechazo {get;set;}
+        global String salesforceid { get; set;}       
     }
-
-    public class SiniestroPut{
-        public String uid { get; set;}
-        public String Reporte { get; set;}
-        public String NumeroSiniestro { get; set;}
-        public String TipoSiniestro { get; set;}
-        public String FechaSiniestro { get; set;}
-        public String NombreConductor { get; set;}
-        public String Causa { get; set;}
-
-        public vehiculo Vehiculo { get; set;}
-        public poliza Poliza { get; set;}
-
-        public String ComoOcurrio { get; set;}
-        public String Ubicacion { get; set;}
-        public String Municipio { get; set;}
-        public String Estado { get; set;}
-        public String Estatus { get; set;}
-        
-        public documentosVehiculo DocumentosVehiculo { get; set;}
-        public documentosAsegurado DocumentosAsegurado { get; set;}
-        public documentosAseguradora DocumentosAseguradora { get; set;}
-
-        public String salesforceid { get; set;}       
-    }
-
-    public class documentosVehiculo{
-        public String Factura { get; set;}  
-        public String ContanciaBajaPlacas { get; set;}  
-        public List<comprobantesTenencia> ComprobantesTenencia { get; set;} 
-        public String CarpetaMP { get; set;} 
-        public String AcreditacionMP { get; set;} 
-        public String OficioLiberacionRobo { get; set;} 
-
-    }
-    public class documentosAsegurado{
-        public String IdentificacionFrontal { get; set;} 
-        public String IdentificacionReverso { get; set;} 
-        public String ComprobanteDomicilio { get; set;} 
-        public String CURP { get; set;} 
-        public String PoderNotarial { get; set;} 
-        public String EncabezadoCuentaBancaria { get; set;} 
-        public String ConstanciaSituacionFiscal { get; set;} 
-        
-    }
-
-    public class documentosAseguradora{
-        public String CartaConsentimientoCFDI { get; set;} 
-        public String FormatoCompraVenta { get; set;} 
-        public String FormatoFiniquito { get; set;} 
-        
-    }
-    
-    public class comprobantesTenencia{
-        public String Descripcion { get; set;} 
-        public String Comprobante { get; set;} 
-        public String IdComprobante { get; set;} 
-        
-    }
-
-    public class SiniestroGet{
-        public String uid { get; set;}
-        public String Reporte { get; set;}
-        public String NumeroSiniestro { get; set;}
-        public String TipoSiniestro { get; set;}
-        public String FechaSiniestro { get; set;}
-        public String NombreConductor { get; set;}
-        public String Causa { get; set;}
-
-        public vehiculo Vehiculo { get; set;}
-        public poliza Poliza { get; set;}
-
-        public String ComoOcurrio { get; set;}
-        public String Ubicacion { get; set;}
-        public String Municipio { get; set;}
-        public String Estado { get; set;}
-        public String Estatus { get; set;}
-        
-        public documentosVehiculo DocumentosVehiculo { get; set;}
-        public documentosAsegurado DocumentosAsegurado { get; set;}
-        public documentosAseguradora DocumentosAseguradora { get; set;}
-
-        public String salesforceid { get; set;}       
+        global class listaSiniestros{
+        //Informacion de Resumen de pago de poliza
+        global String claimpayment_name{get;set;}
+        global Double payment_amount{get;set;}
+        global String payment_type{get;set;}
+        global Date payment_date{get;set;}
     }
 
 }
