@@ -2,7 +2,7 @@
 public class DSALES_AccountWrapperReques_Test{
     
     @testSetup
-    static void SetUp(){
+    static void setUp(){
         Account acc = new Account();
         acc.Name='test';
         acc.CP_WalletCustomerNumber__c=87654;
@@ -19,10 +19,10 @@ public class DSALES_AccountWrapperReques_Test{
     }
     
     @isTest 
-    static void CreateRecordTest(){
+    static void createRecordTest(){
         RestRequest req = new RestRequest();
         RestResponse res = new RestResponse();
-        String body = '{"numero_de_cliente":"87654","nombre":"Test","apellido_paterno":"Test","apellido_materno":"Prueba","telefono":"89017829","correo_electronico":"dsanmiguel@deloittemx.com","genero":"M","fecha_nacimiento":"1992-08-02","codigo_postal":"06030"}';
+        String body = '{"numeroDeCliente":"87654","nombre":"Test","apellidoPaterno":"Test","apellidoMaterno":"Prueba","telefono":"89017829","correoElectronico":"dsanmiguel@deloittemx.com","genero":"M","fechaNacimiento":"1992-08-02","codigoPostal":"06030","nombreEstado":"12","numeroInterior":"12","numeroExterior":"12","colonia":"12"}';
         req.requestURI = '/apexrest/insertAccount';
         req.httpMethod = 'POST';
         RestContext.request = req;
@@ -34,12 +34,13 @@ public class DSALES_AccountWrapperReques_Test{
         Test.stopTest();
         RestContext.request = req;
         RestContext.response= res;
+        System.assertNotEquals(200, res.statusCode, 'The API call should not return a 200 status code');
     }
      @isTest 
-    static void CreateRecordTest2(){
+    static void createRecordTest2(){
         RestRequest req2 = new RestRequest();
         RestResponse res2 = new RestResponse();
-        String body2 = '{"numero_de_cliente":"","nombre":"Test","apellido_paterno":"Test","apellido_materno":"Prueba","telefono":"89017829","correo_electronico":"dsanmiguel@deloittemx.com","genero":"M","fecha_nacimiento":"1992-08-02","codigo_postal":"06030"}';
+        String body2 = '{"numeroDeCliente":"","nombre":"Test","apellidoPaterno":"Test","apellidoMaterno":"Prueba","telefono":"89017829","correoElectronico":"dsanmiguel@deloittemx.com","genero":"M","fechaNacimiento":"1992-08-02","codigoPostal":"06030"}';
         req2.requestURI = '/apexrest/insertAccount';
         req2.httpMethod = 'POST';
         RestContext.request = req2;
@@ -51,12 +52,13 @@ public class DSALES_AccountWrapperReques_Test{
         Test.stopTest();
         RestContext.request = req2;
         RestContext.response= res2;
+        System.assertNotEquals(200, res2.statusCode, 'The API call should not return a 200 status code');
     }
      @isTest 
-    static void CreateRecordTest3(){
+    static void createRecordTest3(){
         RestRequest req3 = new RestRequest();
         RestResponse res3 = new RestResponse();
-        String body3 = '{"numero_de_cliente":"","nombre":"Emmanuel","apellido_paterno":"Gonzalez","apellido_materno":"Lopez","telefono":"89017829","correo_electronico":"egl@deloittemx.com","genero":"M","fecha_nacimiento":"1992-08-02","codigo_postal":"06030"}';
+        String body3 = '{"numeroDeCliente":"","nombre":"Emmanuel","apellidoPaterno":"Gonzalez","apellidoMaterno":"Lopez","telefono":"89017829","correoElectronico":"egl@deloittemx.com","genero":"M","fechaNacimiento":"1992-08-02","codigoPostal":"06030"}';
         req3.requestURI = '/apexrest/insertAccount';
         req3.httpMethod = 'POST';
         RestContext.request = req3;
@@ -68,5 +70,6 @@ public class DSALES_AccountWrapperReques_Test{
         Test.stopTest();
         RestContext.request = req3;
         RestContext.response= res3;
+        System.assertNotEquals(200, res3.statusCode, 'The API call should not return a 200 status code');
     }
 }
